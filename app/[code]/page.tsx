@@ -1,7 +1,12 @@
+import type { Metadata } from "next";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import Countdown from "@/components/Countdown";
 import Gallery from "@/components/Gallery";
+import InviteQr from "@/components/InviteQr";
+import MusicPlayer from "@/components/MusicPlayer";
 import Reveal from "@/components/Reveal";
+import { companionsLabel, getGuest, getGuests, SITE_URL } from "@/lib/guests";
 import { invitation as inv } from "@/lib/invitation";
 
 const petals = Array.from({ length: 14 }, (_, i) => ({
@@ -49,7 +54,19 @@ function Section({
   );
 }
 
-export default function Home() {
+export function generateStaticParams() {
+  return getGuests().map((g) => ({ code: g.code }));
+}
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+};
+
+export default async function InvitationPage({ params }: { params: Promise<{ code: string }> }) {
+  const { code } = await params;
+  const guest = getGuest(code);
+  if (!guest) notFound();
+
   return (
     <main className="overflow-x-hidden">
       {/* Hero */}
@@ -223,9 +240,24 @@ export default function Home() {
         </Reveal>
       </Section>
 
-      <footer className="bg-white px-6 py-10 text-center text-xs uppercase tracking-[0.3em] text-ink/50">
+      {/* Tu invitación (QR) */}
+      <Section tone="white" className="text-center">
+        <Reveal>
+          <SectionTitle eyebrow="Tu invitación">Pase de entrada</SectionTitle>
+          <p className="font-display text-3xl text-ink">{guest.name}</p>
+          <p className="mt-2 text-sm uppercase tracking-[0.25em] text-gold">
+            {companionsLabel(guest.companions)}
+          </p>
+          <div className="mt-8">
+            <InviteQr url={`${SITE_URL}/${guest.code}`} label={`Invitación de ${guest.name}`} />
+          </div>
+        </Reveal>
+      </Section>
+
+      <footer className="bg-blush px-6 py-10 text-center text-xs uppercase tracking-[0.3em] text-ink/50">
         {inv.name} · XV Años · 2026
       </footer>
+      <MusicPlayer />
     </main>
   );
 }

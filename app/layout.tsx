@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Great_Vibes, Montserrat, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import MusicPlayer from "@/components/MusicPlayer";
 
 const display = Playfair_Display({
   variable: "--f-display",
@@ -20,6 +19,7 @@ const script = Great_Vibes({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://joseymar-xv.vercel.app"),
   title: "XV Años de Joseymar Billianny",
   description:
     "Familia Lugo y Familia Tovar te invitan a celebrar los XV años de Joseymar Billianny. Sábado 7 de noviembre de 2026, 8:00 pm.",
@@ -36,10 +36,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="es"
       className={`${display.variable} ${sans.variable} ${script.variable} scroll-smooth`}
     >
-      <body>
-        {children}
-        <MusicPlayer />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
