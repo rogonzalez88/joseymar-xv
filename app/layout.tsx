@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Great_Vibes, Montserrat, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import MusicPlayer from "@/components/MusicPlayer";
 
 const display = Playfair_Display({
   variable: "--f-display",
@@ -35,7 +36,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="es"
       className={`${display.variable} ${sans.variable} ${script.variable} scroll-smooth`}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        <MusicPlayer />
+      </body>
     </html>
   );
 }
