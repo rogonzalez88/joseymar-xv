@@ -34,6 +34,6 @@ export const invitation = {
   dressCode: {
     label: "Semi Formal o Formal",
     description:
-      "Queremos verte elegante en esta noche tan especial. Evita el color rosa, es el color de la festejada.",
+      "Queremos verte elegante en esta noche tan especial.",
   },
 };
