@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-cream: #fff7f2;
+  --color-blush: #fbe4e6;
+  --color-rose: #b8245c;
+  --color-gold: #c9a84c;
+  --color-ink: #4a2c35;
+  --font-sans: var(--f-sans);
+  --font-display: var(--f-display);
+  --font-script: var(--f-script);
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--f-sans), system-ui, sans-serif;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.petal {
+  position: absolute;
+  top: -10vh;
+  border-radius: 150% 0 150% 0;
+  background: linear-gradient(135deg, #f7b6c8, #e98aa8);
+  animation: fall linear infinite;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .petal {
+    animation: none;
+  }
+}
