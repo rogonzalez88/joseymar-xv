@@ -7,7 +7,7 @@
   {
     "code": "8c0193f6-c9a7-4585-8a7b-eb425bf3e8be",
     "name": "Carmen Reyes",
-    "companions": 2
+    "companions": 1
   },
   {
     "code": "1f7c2896-b1b7-46fa-84b5-536a37e65340",
@@ -27,12 +27,17 @@
   {
     "code": "c949259a-28f6-4df5-9c5a-584bffb05ecc",
     "name": "Mariangel Valesquez",
-    "companions": 0
+    "companions": 1
   },
   {
     "code": "8bc380ad-3067-499c-9763-7264b4550885",
     "name": "Minerva Torres",
-    "companions": 1
+    "companions": 0
+  },
+  {
+    "code": "24c99069-ba91-466d-840c-599c26230c0d",
+    "name": "David Reyes",
+    "companions": 0
   },
   {
     "code": "fbeede36-ed02-4e5a-8f83-5fa5c5adaabe",
@@ -50,14 +55,9 @@
     "companions": 0
   },
   {
-    "code": "a751a265-bc19-49fb-8626-4c94534bba7e",
-    "name": "Wilmer Mendez",
+    "code": "45f92588-6d4c-4ef7-8082-c21fd414d61c",
+    "name": "Wilmer Reyes",
     "companions": 1
-  },
-  {
-    "code": "4c091156-b50e-47fa-8c46-bb0a69d367a3",
-    "name": "Sebastian",
-    "companions": 0
   },
   {
     "code": "a8f6b1bd-04a5-41c1-9290-888b25a0d6ba",
@@ -80,19 +80,24 @@
     "companions": 0
   },
   {
-    "code": "45f92588-6d4c-4ef7-8082-c21fd414d61c",
-    "name": "Wilmer Reyes",
-    "companions": 1
+    "code": "c9b2cb40-84e4-44d2-9d20-5d367f3d5d8e",
+    "name": "Julianny",
+    "companions": 0
+  },
+  {
+    "code": "73e24f4b-93f1-4665-abb2-01b63d553645",
+    "name": "Eduardo Mijares",
+    "companions": 0
+  },
+  {
+    "code": "0d4be32c-beea-4f59-92de-4e5307bcc84e",
+    "name": "Angel",
+    "companions": 0
   },
   {
     "code": "36d5256b-4e24-4d3d-9e34-9f871519e5a9",
     "name": "Yonjalver Herrera",
     "companions": 0
-  },
-  {
-    "code": "24c99069-ba91-466d-840c-599c26230c0d",
-    "name": "David Reyes",
-    "companions": 1
   },
   {
     "code": "f9b2d8a3-dc66-400b-a474-161163b4e8b9",
