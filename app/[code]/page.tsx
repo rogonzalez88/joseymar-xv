@@ -6,6 +6,7 @@ import Gallery from "@/components/Gallery";
 import Hero from "@/components/Hero";
 import InviteQr from "@/components/InviteQr";
 import MusicPlayer from "@/components/MusicPlayer";
+import PhotoUpload from "@/components/PhotoUpload";
 import Reveal from "@/components/Reveal";
 import { companionsLabel, getGuest, getGuests, SITE_URL } from "@/lib/guests";
 import { invitation as inv } from "@/lib/invitation";
@@ -60,6 +61,9 @@ export default async function InvitationPage({ params }: { params: Promise<{ cod
   const { code } = await params;
   const guest = getGuest(code);
   if (!guest) notFound();
+  // Con UPLOAD_ALWAYS_OPEN=true la sección de fotos se abre antes de la fiesta (solo para pruebas)
+  const openAt =
+    process.env.UPLOAD_ALWAYS_OPEN === "true" ? new Date(0).toISOString() : inv.eventDate;
 
   return (
     <main className="overflow-x-hidden">
@@ -191,8 +195,19 @@ export default async function InvitationPage({ params }: { params: Promise<{ cod
         </Reveal>
       </Section>
 
-      {/* Tu invitación (QR) */}
+      {/* Fotos de la celebración */}
       <Section tone="white" className="text-center">
+        <Reveal>
+          <SectionTitle eyebrow="Durante la fiesta">Comparte tus fotos</SectionTitle>
+          <p className="mx-auto mb-8 max-w-md text-sm text-ink/70">
+            Sube las fotos que tomes durante la celebración y se guardarán en el álbum de Joseymar.
+          </p>
+          <PhotoUpload code={guest.code} openAt={openAt} />
+        </Reveal>
+      </Section>
+
+      {/* Tu invitación (QR) */}
+      <Section tone="pink" className="text-center">
         <Reveal>
           <SectionTitle eyebrow="Tu invitación">Pase de entrada</SectionTitle>
           <p className="font-display text-3xl text-ink">{guest.name}</p>
@@ -205,7 +220,7 @@ export default async function InvitationPage({ params }: { params: Promise<{ cod
         </Reveal>
       </Section>
 
-      <footer className="bg-blush px-6 py-10 text-center text-xs uppercase tracking-[0.3em] text-ink/50">
+      <footer className="bg-white px-6 py-10 text-center text-xs uppercase tracking-[0.3em] text-ink/50">
         {inv.name} · XV Años · 2026
       </footer>
       <MusicPlayer />
