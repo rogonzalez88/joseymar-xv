@@ -4,6 +4,7 @@ import { invitation as inv } from "@/lib/invitation";
 const MAX_BYTES = 4 * 1024 * 1024; // Vercel limita el cuerpo de una función a ~4.5 MB
 
 function isOpen() {
+  if (!inv.uploadLock) return true;
   if (process.env.UPLOAD_ALWAYS_OPEN === "true") return true;
   return Date.now() >= new Date(inv.eventDate).getTime();
 }

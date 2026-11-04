@@ -61,9 +61,11 @@ export default async function InvitationPage({ params }: { params: Promise<{ cod
   const { code } = await params;
   const guest = getGuest(code);
   if (!guest) notFound();
-  // Con UPLOAD_ALWAYS_OPEN=true la sección de fotos se abre antes de la fiesta (solo para pruebas)
+  // Con uploadLock en false o UPLOAD_ALWAYS_OPEN=true la sección de fotos queda abierta antes de la fiesta
   const openAt =
-    process.env.UPLOAD_ALWAYS_OPEN === "true" ? new Date(0).toISOString() : inv.eventDate;
+    !inv.uploadLock || process.env.UPLOAD_ALWAYS_OPEN === "true"
+      ? new Date(0).toISOString()
+      : inv.eventDate;
 
   return (
     <main className="overflow-x-hidden">
