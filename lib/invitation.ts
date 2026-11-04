@@ -7,7 +7,7 @@ export const invitation = {
   eventDate: "2026-11-07T20:00:00-04:00",
   // TEMPORAL (pruebas en producción): con false, subir fotos está habilitado a cualquier hora.
   // Volver a poner true antes de la fiesta para bloquearlo hasta eventDate.
-  uploadLock: false,
+  uploadLock: true,
   dateLabel: "Sábado 7 de noviembre de 2026",
   timeLabel: "8:00 pm",
   quote:
